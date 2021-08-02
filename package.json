@@ -1,0 +1,32 @@
+{
+  "name": "zeew.botlist",
+  "version": "1.0.0",
+  "description": "Botlis creado especialmente para zeew con mucho amor ♥",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "joi": "^17.4.2",
+    "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "passport-discord": "^0.1.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "nodemon": "^2.0.6"
+  }
+}
