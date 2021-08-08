@@ -1,6 +1,8 @@
 const { Router } = require('express')
 const { auth } = require('../util/middleware/auth')
-const Joi = require('joi')
+const { peticion } = require('../util/schemas/bot')
+const addHook = require('../util/hooks/add')
+const addBotdb = require('../util/db/add.db')
 const router = Router()
 
 const ErrorHandler = {
@@ -21,38 +23,34 @@ router.get('/bot/add', auth, (req, res) => {
 })
 
 router.get('/bot/:id', auth, (req, res) => {
-  const id = req.params.id
-  const servidor = req.BotClient.guilds.cache.get(id)
-  const canales = servidor.channels.cache
-
-  res.render('dash', {
-    user: req.user,
-    servidor,
-    canales
-  })
 })
 
 router.post('/bot/', auth, async (req, res) => {
   try {
-    const { FAQ_TEAM, prefix, id, faq_bot } = req.body
-
-    const bot = await req.bot.users.fetch(id)
+    const { value, error } = peticion(req)
+    if (error) return res.render('bot/error', { user: req.user, error: error.details.map(a => a.message) })
+    const bot = await req.bot.users.fetch(req.body.id)
     if (!bot.bot) return res.render('bot/error', { user: req.user, error: 'Eso no es un bot' })
+
+    const data = {
+      ...value,
+      ...bot
+    }
+    addHook(req, data)
+    addBotdb(req, data)
 
     res.render('bot/sucess', {
       user: req.user,
-      FAQ_TEAM,
-      prefix,
-      id,
-      faq_bot
+      value,
+      bot,
+      date: new Date()
     })
   } catch (error) {
     console.log(error)
-
     const messageError = error.message.split(':')[0].split('\n')[1]
     let ErrorMsg
     if (messageError === 'user_id') ErrorMsg = ErrorHandler[messageError]
-    else ErrorMsg = 'Ha ocurrido un error al mandar la peticion'
+    else ErrorMsg = error
 
     res.render('bot/error', {
       user: req.user,

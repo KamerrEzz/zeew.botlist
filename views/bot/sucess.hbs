@@ -1,6 +1,29 @@
-<h1>{{user.username}}</h1>
-<h2>peticion del bot enviado</h2>
-<button id="back_botlist" class="btn btn-primary">Regresar</button>
+<div class="container">
+  <h1>{{user.username}}</h1>
+  <h2>peticion del bot enviado</h2>
+  <div class="row justify-content-center">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">ID</th>
+            <th scope="col">Fecha de peticion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>{{bot.username}}</th>
+            <td>{{bot.id}}</td>
+            <td>{{date}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <button id="back_botlist" class="btn btn-primary">Regresar</button>
+</div>
 
 <script>
   let btn = document.getElementById("back_botlist")
