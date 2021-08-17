@@ -4,6 +4,7 @@ const hbs = require('express-handlebars')
 const passport = require('./passport')
 const BotClient = require('./bot')
 const db = require('./database')
+const { token} = require('../config/config')
 const path = require('path')
 const app = express()
 

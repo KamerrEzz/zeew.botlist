@@ -7,10 +7,11 @@ router.get('/', (req, res) => {
 })
 
 router.get('/login', passport.authenticate('discord'), (req, res) => {
-  res.redirect('/bot/add')
+  res.redirect('/user')
 })
 
-router.use('/', require('./bot.routes'))
+router.use('/api', require('./api/bot'))
+router.use('/api', require('./api/user'))
 router.use('/', require('./user.routes'))
 
 module.exports = router
