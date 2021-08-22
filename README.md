@@ -16,31 +16,6 @@ DB_PASS=
 DB_PORT=
 ````
 
-# TO-DO 
-
-## Bot
-  - Peticion 
-  - Comandos
-    - Aceptar nuevo Bot
-      - status = true # Aceptado | False - Pendiente
-      - Rechazar/Borrar Bot de la db y mandar alerta de rechazo mas razon
-    - Admin
-      - Eliminar Bot
-      - Cambiar estatus
-## API
-  - Bot
-    - Agregar
-    - Actualizar
-    - Obtener
-    - Eliminar
-  - Webhook
-    - Nuevo voto
-    - Agregar url para envio
-  - Logs
-    - Cambio status Bot
-    - Nueva peticion Bot
-    - Bot eliminado
-    - Datos del bot actualizados
 
 # Informacion
 
@@ -106,8 +81,9 @@ Uso el uso del codigo creando en este proyecto para mejorar cualquier proyecto s
 ## Schemas - Datos
   - Bot
     - id
-    - ShortDesc
-    - LongDesc
+    - username
+    - shortdesc
+    - Longdesc
     - prefix
     - owner
     - team
@@ -118,9 +94,9 @@ Uso el uso del codigo creando en este proyecto para mejorar cualquier proyecto s
     - likes
     - dislikes
     - tags
-    - isPremiun
-    - isZeew
-    - isZeewTEAM
+    - ispremiun
+    - iszeew
+    - iszeewTEAM
     - status
   - User
     - id

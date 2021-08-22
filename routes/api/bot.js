@@ -23,32 +23,32 @@ router.post('/bot', async (req, res) => {
     "data": data
   })
 })
-router.put('/bot/:id', async (req, res) => {
-  let id = req.params.id;
-  let data = await Bot.update(req, id);
-  if (data) return res.status(202).json({
-    "api": true,
-    "data": data
-  })
-  if (!data) return res.status(500).json({
-    "api": true,
-    "error": true,
-    "message": "Unknown error"
-  })
-})
-router.delete('/bot/:id', async (req, res) => {
-  let id = req.params.id;
-  let data = await Bot.delete(req, id);
-  if (data) return res.status(202).json({
-    "api": true,
-    "data": data
-  })
-  if (!data) return res.status(500).json({
-    "api": true,
-    "error": true,
-    "message": "Unknow error"
-  })
+// router.put('/bot/:id', async (req, res) => {
+//   let id = req.params.id;
+//   let data = await Bot.update(req, id);
+//   if (data) return res.status(202).json({
+//     "api": true,
+//     "data": data
+//   })
+//   if (!data) return res.status(500).json({
+//     "api": true,
+//     "error": true,
+//     "message": "Unknown error"
+//   })
+// })
+// router.delete('/bot/:id', async (req, res) => {
+//   let id = req.params.id;
+//   let data = await Bot.delete(req, id);
+//   if (data) return res.status(202).json({
+//     "api": true,
+//     "data": data
+//   })
+//   if (!data) return res.status(500).json({
+//     "api": true,
+//     "error": true,
+//     "message": "Unknow error"
+//   })
 
-})
+// })
 
 module.exports = router

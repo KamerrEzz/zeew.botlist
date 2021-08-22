@@ -12,19 +12,19 @@ router.get('/user/:id', async (req, res) => {
   if(!data) return res.status(404).json({api: true, message: 'not found user'});
   res.status(202).json({api: true, data});
 })
-router.post('/user', async (req, res) => {
-  let id = req.body.id
-  const data = await User.create(req, id);
-  res.status(202).json({api: true, data});
-})
-router.put('/user/:id', async (req, res) => {
-  let id = req.params.id;
+// router.post('/user', async (req, res) => {
+//   let id = req.body.id
+//   const data = await User.create(req, id);
+//   res.status(202).json({api: true, data});
+// })
+// router.put('/user/:id', async (req, res) => {
+//   let id = req.params.id;
 
-})
-router.delete('/user/:id', async (req, res) => {
-  let id = req.params.id;
-  const data = await User.delete(req, id);
-  res.status(202).json({api: true, data});
-})
+// })
+// router.delete('/user/:id', async (req, res) => {
+//   let id = req.params.id;
+//   const data = await User.delete(req, id);
+//   res.status(202).json({api: true, data});
+// })
 
 module.exports = router

@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@discordjs/rest": "0.1.0-canary.0",
+    "cors": "^2.8.5",
     "discord-api-types": "^0.22.0",
     "discord-webhook-node": "^1.1.8",
     "discord.js": "^12.5.1",

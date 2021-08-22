@@ -3,6 +3,7 @@ const session = require('express-session')
 const hbs = require('express-handlebars')
 const passport = require('./passport')
 const BotClient = require('./bot')
+const cors = require('cors')
 const db = require('./database')
 const { token} = require('../config/config')
 const path = require('path')
@@ -12,6 +13,7 @@ app
   .set('port', process.env.PORT || 3000)
   .use(express.static('public'))
   .use(express.json())
+  .use(cors())
   .use(express.urlencoded({ extended: true }))
   .use(
     session({

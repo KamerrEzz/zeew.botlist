@@ -35,13 +35,13 @@ module.exports = {
     const isDiscord = await isIdDiscord(req, body.id)
     if (!isDiscord) return {error: true, message: 'This is not a valid ID '}
 
-
     const getbot = await req.bot.users.fetch(body.id)
     const getuser = await req.bot.users.fetch(user)
 
     add(req, {
       id: body.id,
-      ShortDesc: body.shortDesc,
+      username: isDiscord.username,
+      shortdesc: body.shortdesc,
       prefix: body.prefix,
       owner: user
     })
@@ -60,7 +60,8 @@ module.exports = {
 
     return {
       id: body.id,
-      shortDesc: body.shortDesc,
+      username: isDiscord.username,
+      shortdesc: body.shortdesc,
       prefix: body.prefix,
       owner: user
     }
