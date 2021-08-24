@@ -3,10 +3,13 @@
 
 archivo `.env`
 ```js
+# Discord
 clientID=
 clientSecret=
 callbackURL=
 token=
+mainUrl=
+botPrefix=
 
 # MYSQL DATA
 DB_HOST=
@@ -14,6 +17,11 @@ DB_NAME=
 DB_USER=
 DB_PASS=
 DB_PORT=
+
+# Webhooks
+WH_NAME=
+WH_PROFILE_IMG=
+WH_URL=
 ````
 
 
